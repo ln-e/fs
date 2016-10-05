@@ -1,13 +1,6 @@
-<!-- Badges URLs for 'master' and 'develop' branches -->
-[master-badge]:    /../badges/master/build.svg   "Master build status"
-[master-commits]:  /../commits/master            "Master last commits"
-[develop-badge]:   /../badges/develop/build.svg  "Develop build status"
-[develop-commits]: /../commits/develop           "Develop last commits"
+# File System Component
 
-
-# File System | [![master-badge][]][master-commits] | [![develop-badge][]][develop-commits]
-
-Framework File System Component.
+Parser3 File System Component.
 
 ---
 
@@ -19,7 +12,7 @@ Framework File System Component.
 
 ## References
 
-- Questions to [Leonid Knyazev](@n3o) | <leonid@knyazev.me> | <n3o@design.ru>
-- Feature requests to [Issues](https://gitlab.design.ru/n3o/fs/issues)
+- Questions to <leonid@knyazev.me> | <n3o@design.ru>
+- Bug reports and Feature requests to [Issues](/issues)
 
 ---
