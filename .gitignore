@@ -24,3 +24,6 @@ node_modules
 *.log
 *.pyc
 *.orig
+
+parsekit.lock
+vault/

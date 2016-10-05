@@ -1,0 +1,14 @@
+{
+	"name": "als/fs",
+	"type": "library",
+	"description": "Parser3 File System Component.",
+	"keywords": ["fs", "filesystem", "path"],
+	"require": {
+		"parser": ">=3.4.3"
+	},
+	"autoload": {
+		"namespace": {
+			"als/fs": "src"
+		}
+	}
+}
