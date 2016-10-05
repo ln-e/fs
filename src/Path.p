@@ -30,13 +30,13 @@ $self.cwd[${self.separator}^env:DOCUMENT_ROOT.trim[both;$self.separator]]
 $result[]
 
 $paths[^hash::create[$paths]]
-$count(^paths.count[] - 1)
+$count(^paths._count[] - 1)
 
 $isAbsolute(false)
 
 ^if($count >= 0){
 	^while($count >= 0){
-		$path[^paths.at($count)[value]]
+		$path[^paths._at($count)]
 		$path[^path.trim[]]
 
 		^self._assert[$path]
@@ -113,7 +113,7 @@ $result[]
 
 $paths[^hash::create[$paths]]
 
-^if(^paths.count[] > 0){
+^if(^paths._count[] > 0){
 	^paths.foreach[_index;_path]{
 		$path[^_path.trim[]]
 
@@ -371,11 +371,11 @@ $paths[^table::create{path}]
 
 	^if($part eq '..'){
 		^if($isAbsolute){
-			^if(^paths.count[]){
+			^if(^paths._count[]){
 				^paths.delete[]
 			}
 		}{
-			^if(^paths.count[]){
+			^if(^paths._count[]){
 				^if($paths.path eq '..'){
 					^paths.append{$part}
 				}{
