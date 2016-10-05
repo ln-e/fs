@@ -1,4 +1,4 @@
-# Class 'fs/Path'
+# Class 'als/als/fs/Path'
 
 ### Properties
 
@@ -33,7 +33,7 @@ Provides the path delimiter.
 #### Example
 
 ```ruby
-${fs/Path:delimiter}
+${als/fs/Path:delimiter}
 #--> ':'
 
 
@@ -41,7 +41,7 @@ $env:PATH
 #--> '/usr/local/bin:/usr/bin:/bin'
 
 
-$paths[^env:PATH.split[${fs/Path:delimiter};h]]
+$paths[^env:PATH.split[${als/fs/Path:delimiter};h]]
 #--> |/usr/local/bin|/usr/bin|/bin|
 ```
 
@@ -56,12 +56,12 @@ Provides the path segment separator.
 #### Example
 
 ```ruby
-${fs/Path:separator}
+${als/fs/Path:separator}
 #--> '/'
 
 
 $path[/assets/images/icons.png]
-$parts[^path.split[${fs/Path:separator};h]]
+$parts[^path.split[${als/fs/Path:separator};h]]
 #--> |assets|images|icons.png|
 ```
 
@@ -76,7 +76,7 @@ Contains the absolute path of the 'DOCUMENT_ROOT'.
 #### Example
 
 ```ruby
-${fs/Path:cwd}
+${als/fs/Path:cwd}
 #--> '/home/username/host/www'
 ```
 
@@ -85,13 +85,13 @@ ${fs/Path:cwd}
 
 ## @METHOD: basename
 
-The `^fs/Path:basename[]` methods returns the last portion of a `path`, similar to the Unix `basename` command.
+The `^als/fs/Path:basename[]` methods returns the last portion of a `path`, similar to the Unix `basename` command.
 
 ---
 
 ### Syntax
 
-`^fs/Path:basename[path[;ext]]`
+`^als/fs/Path:basename[path[;ext]]`
 
 ### Params
 
@@ -101,11 +101,11 @@ The `^fs/Path:basename[]` methods returns the last portion of a `path`, similar 
 ### Example
 
 ```ruby
-^fs/Path:basename[/foo/bar/baz/asdf/quux.html]
+^als/fs/Path:basename[/foo/bar/baz/asdf/quux.html]
 #--> 'quux.html'
 
 
-^fs/Path:basename[/foo/bar/baz/asdf/quux.html;.html]
+^als/fs/Path:basename[/foo/bar/baz/asdf/quux.html;.html]
 #--> 'quux'
 ```
 
@@ -113,13 +113,13 @@ The `^fs/Path:basename[]` methods returns the last portion of a `path`, similar 
 
 ## @METHOD: dirname
 
-The `^fs/Path:dirname[]` method returns the directory name of a `path`, similar to the Unix `dirname` command.
+The `^als/fs/Path:dirname[]` method returns the directory name of a `path`, similar to the Unix `dirname` command.
 
 ---
 
 ### Syntax
 
-`^fs/Path:dirname[path]`
+`^als/fs/Path:dirname[path]`
 
 ### Params
 
@@ -128,7 +128,7 @@ The `^fs/Path:dirname[]` method returns the directory name of a `path`, similar 
 ### Example
 
 ```ruby
-^fs/Path:dirname[/foo/bar/baz/asdf/quux]
+^als/fs/Path:dirname[/foo/bar/baz/asdf/quux]
 #--> '/foo/bar/baz/asdf'
 ```
 
@@ -136,13 +136,13 @@ The `^fs/Path:dirname[]` method returns the directory name of a `path`, similar 
 
 ## @METHOD: extname
 
-The `^fs/Path:extname[]` method returns the extension of the `path`, from the last occurance of the `.` (period) character to end of string in the last portion of the `path`. If there is no `.` in the last portion of the `path`, or if the first character of the basename of `path` (see [`^fs/Path:basename[]`](#method-basename)) is `.`, then an empty string is returned.
+The `^als/fs/Path:extname[]` method returns the extension of the `path`, from the last occurance of the `.` (period) character to end of string in the last portion of the `path`. If there is no `.` in the last portion of the `path`, or if the first character of the basename of `path` (see [`^als/fs/Path:basename[]`](#method-basename)) is `.`, then an empty string is returned.
 
 ---
 
 ### Syntax
 
-`^fs/Path:extname[path]`
+`^als/fs/Path:extname[path]`
 
 ### Params
 
@@ -151,23 +151,23 @@ The `^fs/Path:extname[]` method returns the extension of the `path`, from the la
 ### Example
 
 ```ruby
-^fs/Path:extname[index.html]
+^als/fs/Path:extname[index.html]
 #--> '.html'
 
 
-^fs/Path:extname[index.coffee.md]
+^als/fs/Path:extname[index.coffee.md]
 #--> '.md'
 
 
-^fs/Path:extname[index.]
+^als/fs/Path:extname[index.]
 #--> '.'
 
 
-^fs/Path:extname[index]
+^als/fs/Path:extname[index]
 #--> ''
 
 
-^fs/Path:extname[.index]
+^als/fs/Path:extname[.index]
 #--> ''
 ```
 
@@ -175,13 +175,13 @@ The `^fs/Path:extname[]` method returns the extension of the `path`, from the la
 
 ## @METHOD: format
 
-The `^fs/Path:format[]` method returns a path string from an `<hash>`. This is the opposite of [`^fs/Path:parse[]`](#method-parse).
+The `^als/fs/Path:format[]` method returns a path string from an `<hash>`. This is the opposite of [`^als/fs/Path:parse[]`](#method-parse).
 
 ---
 
 ### Syntax
 
-`^fs/Path:format[hPath]`
+`^als/fs/Path:format[hPath]`
 
 ### Params
 
@@ -196,7 +196,7 @@ The `^fs/Path:format[]` method returns a path string from an `<hash>`. This is t
 
 The following process is used when constructing the path string:
 - `$result` is set to an empty string.
-- If `$.dir[]` is specified, `$.dir[]` is appended to `$result` followed by the value of [`$fs/Path:separator`](#property-separator);
+- If `$.dir[]` is specified, `$.dir[]` is appended to `$result` followed by the value of [`$als/fs/Path:separator`](#property-separator);
 - Otherwise, if `$.root[]` is specified, `$.root[]` is appended to `$result`.
 - If `$.base[]` is specified, `$.base[]` is appended to `$result`;
 - Otherwise:
@@ -210,7 +210,7 @@ The following process is used when constructing the path string:
 # If 'dir' and 'base' are provided:
 # ${dir}${separator}${base}
 # will be returned.
-^fs/Path:format[
+^als/fs/Path:format[
 	$.dir[/home/user/dir]
 	$.base[file.txt]
 ]
@@ -220,7 +220,7 @@ The following process is used when constructing the path string:
 # 'root will be used if 'dir' is not specified.
 # If only 'root' is provided or 'dir' is equal to 'root'
 # then the separator will not be included.
-^fs/Path:format[
+^als/fs/Path:format[
 	$.root[/]
 	$.base[file.txt]
 ]
@@ -228,7 +228,7 @@ The following process is used when constructing the path string:
 
 
 # `name` + `ext` will be used if `base` is not specified.
-^fs/Path:format[
+^als/fs/Path:format[
 	$.root[/]
 	$.name[file]
 	$.ext[.txt]
@@ -237,7 +237,7 @@ The following process is used when constructing the path string:
 
 
 # `base` will be returned if `dir` or `root` are not provided.
-^fs/Path:format[
+^als/fs/Path:format[
 	$.base[file.txt]
 ]
 #--> 'file.txt'
@@ -247,7 +247,7 @@ The following process is used when constructing the path string:
 
 ## @METHOD: isAbsolute
 
-The `^fs/Path:isAbsolute[]` method determines if `path` is an absolute path.
+The `^als/fs/Path:isAbsolute[]` method determines if `path` is an absolute path.
 
 If the given `path` is a zero-length string, `false` will be returned.
 
@@ -255,7 +255,7 @@ If the given `path` is a zero-length string, `false` will be returned.
 
 ### Syntax
 
-`^fs/Path:isAbsolute[path]`
+`^als/fs/Path:isAbsolute[path]`
 
 ### Params
 
@@ -264,19 +264,19 @@ If the given `path` is a zero-length string, `false` will be returned.
 ### Example
 
 ```ruby
-^fs/Path:isAbsolute[/foo/bar]
+^als/fs/Path:isAbsolute[/foo/bar]
 #--> true
 
 
-^fs/Path:isAbsolute[/baz/..]
+^als/fs/Path:isAbsolute[/baz/..]
 #--> true
 
 
-^fs/Path:isAbsolute[qux/]
+^als/fs/Path:isAbsolute[qux/]
 #--> false
 
 
-^fs/Path:isAbsolute[.]
+^als/fs/Path:isAbsolute[.]
 #--> false
 ```
 
@@ -284,7 +284,7 @@ If the given `path` is a zero-length string, `false` will be returned.
 
 ## @METHOD: join
 
-The `^fs/Path:join[]` method join all given `path` segments together using the [`$fs/Path:separator`](#property-separator) as a delimiter, then [@normalize](#method-normalize)s the resulting path.
+The `^als/fs/Path:join[]` method join all given `path` segments together using the [`$als/fs/Path:separator`](#property-separator) as a delimiter, then [@normalize](#method-normalize)s the resulting path.
 
 Zero-length `path` segments are ignored. If the joined path string is a zero-length string then `'.'` will be returned, representing the current working directory.
 
@@ -292,7 +292,7 @@ Zero-length `path` segments are ignored. If the joined path string is a zero-len
 
 ### Syntax
 
-`^fs/Path:join[path1;path2[;...]]`
+`^als/fs/Path:join[path1;path2[;...]]`
 
 ### Params
 
@@ -301,11 +301,11 @@ Zero-length `path` segments are ignored. If the joined path string is a zero-len
 ### Example
 
 ```ruby
-^fs/Path:join[/foo;bar;baz/asdf;quux;..]
+^als/fs/Path:join[/foo;bar;baz/asdf;quux;..]
 #--> '/foo/bar/baz/asdf'
 
 
-^fs/Path:join[foo; $.path[123] ;bar]
+^als/fs/Path:join[foo; $.path[123] ;bar]
 #--> throws 'invalid.argument' error.
 ```
 
@@ -313,7 +313,7 @@ Zero-length `path` segments are ignored. If the joined path string is a zero-len
 
 ## @METHOD: normalize
 
-The `^fs/Path:normalize[]` method normalizes the given `path`, resolving `'..'` and `'.'` segments.
+The `^als/fs/Path:normalize[]` method normalizes the given `path`, resolving `'..'` and `'.'` segments.
 
 When multiple, sequential path segment separation characters are found, they are replaced by a single instance of the path segment separator. Trailing separators are preserved.
 
@@ -323,7 +323,7 @@ If the path is a zero-length string, `'.'` is returned, representing the current
 
 ### Syntax
 
-`^fs/Path:normalize[path]`
+`^als/fs/Path:normalize[path]`
 
 ### Params
 
@@ -332,7 +332,7 @@ If the path is a zero-length string, `'.'` is returned, representing the current
 ### Example
 
 ```ruby
-^fs/Path:normalize[/foo/bar//baz/asdf/quux/..]
+^als/fs/Path:normalize[/foo/bar//baz/asdf/quux/..]
 #--> '/foo/bar/baz/asdf'
 ```
 
@@ -340,7 +340,7 @@ If the path is a zero-length string, `'.'` is returned, representing the current
 
 ## @METHOD: parse
 
-The `^fs/Path:parse[]` method returns an `<hash>` whose properties represent significant elements of the path.
+The `^als/fs/Path:parse[]` method returns an `<hash>` whose properties represent significant elements of the path.
 
 The returned `<hash>` will have the following properties:
 
@@ -354,7 +354,7 @@ The returned `<hash>` will have the following properties:
 
 ### Syntax
 
-`^fs/Path:parse[path]`
+`^als/fs/Path:parse[path]`
 
 ### Params
 
@@ -363,7 +363,7 @@ The returned `<hash>` will have the following properties:
 ### Example
 
 ```ruby
-^fs/Path:parse[/home/user/dir/file.txt]
+^als/fs/Path:parse[/home/user/dir/file.txt]
 #-->
 #  $.root[/]
 #  $.dir[/home/user/dir]
@@ -376,7 +376,7 @@ The returned `<hash>` will have the following properties:
 
 ## @METHOD: relative
 
-The `^fs/Path:relative[]` method returns the relative path from `from` to `to`. If `from` and `to` each resolve to the same path (after calling [`^fs/Path:resolve[]`](#method-resolve) on each), a zero-length string is returned.
+The `^als/fs/Path:relative[]` method returns the relative path from `from` to `to`. If `from` and `to` each resolve to the same path (after calling [`^als/fs/Path:resolve[]`](#method-resolve) on each), a zero-length string is returned.
 
 If a zero-length string is passed as `from` or `to`, the current working directory will be used instead of the zero-length strings.
 
@@ -384,7 +384,7 @@ If a zero-length string is passed as `from` or `to`, the current working directo
 
 ### Syntax
 
-`^fs/Path:relative[from;to]`
+`^als/fs/Path:relative[from;to]`
 
 ### Params
 
@@ -394,7 +394,7 @@ If a zero-length string is passed as `from` or `to`, the current working directo
 ### Example
 
 ```ruby
-^fs/Path:relative[/home/user/test/aaa;/home/user/impl/bbb]
+^als/fs/Path:relative[/home/user/test/aaa;/home/user/impl/bbb]
 #--> '../../impl/bbb'
 ```
 
@@ -402,9 +402,9 @@ If a zero-length string is passed as `from` or `to`, the current working directo
 
 ## @METHOD: resolve
 
-The `^fs/Path:resolve[]` method resolves a sequence of paths or path segments into an absolute path.
+The `^als/fs/Path:resolve[]` method resolves a sequence of paths or path segments into an absolute path.
 
-The given sequence of paths is processed from right to left, with each subsequent `path` prepended until an absolute path is constructed. For instance, given the sequence of path segments: `/foo`, `/bar`, `baz`, calling  `^fs/Path:resolve[/foo;/bar;baz]` would return `/bar/baz`.
+The given sequence of paths is processed from right to left, with each subsequent `path` prepended until an absolute path is constructed. For instance, given the sequence of path segments: `/foo`, `/bar`, `baz`, calling  `^als/fs/Path:resolve[/foo;/bar;baz]` would return `/bar/baz`.
 
 If after processing all given `path` segments an absolute path has not yet been generated, the current working directory is used.
 
@@ -412,13 +412,13 @@ The resulting path is normalized and trailing slashes are removed unless the pat
 
 Zero-length `path` segments are ignored.
 
-If no `path` segments are passed, `^fs/Path:resolve[]` will return the absolute path of the current working directory.
+If no `path` segments are passed, `^als/fs/Path:resolve[]` will return the absolute path of the current working directory.
 
 ---
 
 ### Syntax
 
-`^fs/Path:resolve[[path[; ...]]`
+`^als/fs/Path:resolve[[path[; ...]]`
 
 ### Params
 
@@ -427,16 +427,16 @@ If no `path` segments are passed, `^fs/Path:resolve[]` will return the absolute 
 ### Example
 
 ```ruby
-^fs/Path:resolve[/foo/bar;./baz]
+^als/fs/Path:resolve[/foo/bar;./baz]
 #--> '/foo/bar/baz'
 
 
-^fs/Path:resolve[/foo/bar;/tmp/file/]
+^als/fs/Path:resolve[/foo/bar;/tmp/file/]
 #--> '/tmp/file'
 
 
 # if the current working directory is '/home/myself/node'
-^fs/Path:resolve[wwwroot;static_files/png/;../gif/image.gif]
+^als/fs/Path:resolve[wwwroot;static_files/png/;../gif/image.gif]
 #--> '/home/myself/node/wwwroot/static_files/gif/image.gif'
 ```
 

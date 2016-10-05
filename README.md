@@ -13,6 +13,6 @@ Parser3 File System Component.
 ## References
 
 - Questions to <leonid@knyazev.me> | <n3o@design.ru>
-- Bug reports and Feature requests to [Issues](/issues)
+- Bug reports and Feature requests to [Issues](/../issues)
 
 ---

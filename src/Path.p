@@ -2,7 +2,7 @@
 # $ID: Path.p, 24 Aug 2016 11:44, Leonid 'n3o' Knyazev $
 ###############################################################################
 @CLASS
-fs/Path
+als/fs/Path
 
 
 @OPTIONS
