@@ -364,33 +364,35 @@ $path[^path.trim[both;$self.separator]]
 $parts[^path.split[$self.separator;l]]
 $parts[^parts.select(def ^parts.piece.trim[] && ^parts.piece.trim[] ne ".")]
 
-$paths[^table::create{path}]
+$paths[^hash::create[]]
+$i(0)
 
 ^parts.menu{
 	$part[^parts.piece.trim[]]
+    $prev($i-1)
 
 	^if($part eq '..'){
 		^if($isAbsolute){
 			^if(^paths._count[]){
-				^paths.delete[]
+				^paths.delete[$prev]
 			}
 		}{
 			^if(^paths._count[]){
 				^if($paths.path eq '..'){
-					^paths.append{$part}
+					$paths.$i[$part]
 				}{
-					^paths.delete[]
+                    ^paths.delete[$prev]
 				}
 			}{
-				^paths.append{$part}
+				$paths.$i[$part]
 			}
 		}
 	}{
-		^paths.append{$part}
+		$paths.$i[$part]
 	}
 
-	^paths.offset[set]($paths - 1)
+	^i.inc[]
 }
 
-$result[^paths.menu{$paths.path}[$self.separator]]
+$result[^paths.foreach[key;value]{$value}[$self.separator]]
 #end @_normalize[]
